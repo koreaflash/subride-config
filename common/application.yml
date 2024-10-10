@@ -10,7 +10,7 @@ spring:
     #password: ${DB_PASSWORD:{cipher}a68de9b0597cdb81a077bc626aa714f834e6798e9c0aa53c26d5cefb2c525d06}
     #암호화한 값을 사용할 때는 위와 같은 형식은 사용 못함
     # curl -X POST http://localhost:9001/encrypt -d "P@ssw0rd$"
-    password: '{cipher}dbf7229281926da83068aee04aca0fdbc170fa0bdc476e8e9241f1f4e827ba3c'
+    password: "{cipher}dbf7229281926da83068aee04aca0fdbc170fa0bdc476e8e9241f1f4e827ba3c"
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
@@ -19,7 +19,14 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
@@ -68,4 +75,3 @@ management:
     web:
       exposure:
         include: health, info, env, mappings, routes
-
